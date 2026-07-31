@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+     xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:app="http://schemas.android.com/apk/res-auto"
+     xmlns:tools="http://schemas.android.com/tools"
+     android:layout_height="match_parent"
+     android:layout_width="match_parent"
+     android:orientation="vertical"
+     tools:context=".PrincipalMenuActivity">
+
+    <TextView
+         android:layout_height="wrap_content"
+         android:layout_width="match_parent"
+         android:layout_margin="12dp"
+         android:text="REPASAR POR: " />
+
+    <Button
+         android:layout_height="wrap_content"
+         android:layout_width="match_parent"
+         android:layout_margin="12dp"
+         android:id="@+id/btn_text_reference"
+         android:text="Texto - Cita" />
+
+    <Button
+         android:layout_height="wrap_content"
+         android:layout_width="match_parent"
+         android:layout_margin="12dp"
+         android:id="@+id/btn_reference_text"
+         android:text="Cita - Texto" />
+
+    <Button
+         android:layout_height="wrap_content"
+         android:layout_width="match_parent"
+         android:layout_margin="12dp"
+         android:id="@+id/btn_assosiations"
+         android:text="Asociaciones" />
+
+</LinearLayout>
