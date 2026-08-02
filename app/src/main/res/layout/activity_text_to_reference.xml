@@ -13,8 +13,8 @@
          app:layout_constraintTop_toTopOf="parent"
          app:layout_constraintStart_toStartOf="parent"
          app:layout_constraintEnd_toEndOf="parent"
-         app:layout_constraintBottom_toBottomOf="@id/et_biblicTextAnswer"
-         android:id="@+id/et_biblicText" />
+         app:layout_constraintBottom_toBottomOf="@id/et_biblic_text_answer"
+         android:id="@+id/et_biblic_text" />
 
     <EditText
          android:layout_height="wrap_content"
@@ -22,9 +22,9 @@
          android:hint="Escribe la cita biblica"
          app:layout_constraintStart_toStartOf="parent"
          app:layout_constraintEnd_toEndOf="parent"
-         app:layout_constraintBottom_toTopOf="@id/btn_validateAnswer"
-         app:layout_constraintTop_toBottomOf="@id/et_biblicText"
-         android:id="@+id/et_biblicTextAnswer" />
+         app:layout_constraintBottom_toTopOf="@id/btn_validate_answer"
+         app:layout_constraintTop_toBottomOf="@id/et_biblic_text"
+         android:id="@+id/et_biblic_text_answer" />
 
     <Button
          android:layout_height="wrap_content"
@@ -32,8 +32,8 @@
          app:layout_constraintStart_toStartOf="parent"
          app:layout_constraintEnd_toEndOf="parent"
          app:layout_constraintBottom_toBottomOf="parent"
-         app:layout_constraintTop_toBottomOf="@id/et_biblicTextAnswer"
+         app:layout_constraintTop_toBottomOf="@id/et_biblic_text_answer"
          android:text="Validar"
-         android:id="@+id/btn_validateAnswer" />
+         android:id="@+id/btn_validate_answer" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
