@@ -5,6 +5,68 @@
      xmlns:tools="http://schemas.android.com/tools"
      android:layout_height="match_parent"
      android:layout_width="match_parent"
+     android:padding="12dp"
+     android:orientation="vertical"
      tools:context=".AddTextActivity">
+
+    <ScrollView
+         android:layout_height="match_parent"
+         android:layout_width="match_parent">
+
+        <LinearLayout
+             android:layout_height="match_parent"
+             android:layout_width="match_parent"
+             android:padding="12dp"
+             android:orientation="vertical">
+
+            <TextView
+                 android:layout_height="wrap_content"
+                 android:layout_width="wrap_content"
+                 android:layout_marginBottom="12dp"
+                 android:textSize="20sp"
+                 android:text="Cita Bíblica" />
+
+            <EditText
+                 android:layout_height="wrap_content"
+                 android:layout_width="match_parent"
+                 android:layout_marginBottom="12dp"
+                 android:id="@+id/et_set_reference" />
+
+            <TextView
+                 android:layout_height="wrap_content"
+                 android:layout_width="wrap_content"
+                 android:layout_marginBottom="12dp"
+                 android:textSize="20sp"
+                 android:text="Texto Bíblico" />
+
+            <EditText
+                 android:layout_height="wrap_content"
+                 android:layout_width="match_parent"
+                 android:layout_marginBottom="12dp"
+                 android:id="@+id/et_set_text" />
+
+            <TextView
+                 android:layout_height="wrap_content"
+                 android:layout_width="wrap_content"
+                 android:layout_marginBottom="12dp"
+                 android:textSize="20sp"
+                 android:text="Asociación Inverosímil" />
+
+            <EditText
+                 android:layout_height="wrap_content"
+                 android:layout_width="match_parent"
+                 android:layout_marginBottom="12dp"
+                 android:id="@+id/et_set_assosiation" />
+
+            <Button
+                 android:layout_height="wrap_content"
+                 android:layout_width="wrap_content"
+                 android:layout_marginBottom="12dp"
+                 android:text="Guardar"
+                 android:id="@+id/btn_save" />
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>
