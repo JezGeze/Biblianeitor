@@ -20,6 +20,10 @@
         <activity
             android:name=".TextToReferenceActivity"
             android:exported="true">
+        </activity>
+        <activity
+            android:name=".AddTextActivity"
+            android:exported="true">
         </activity>    
     </application>
     

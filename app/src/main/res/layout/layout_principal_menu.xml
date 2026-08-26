@@ -35,4 +35,10 @@
          android:id="@+id/btn_assosiations"
          android:text="Asociaciones" />
 
+    <Button
+         android:id="@+id/btn_add_text"
+         android:layout_height="wrap_content"
+         android:layout_width="wrap_content"
+         android:text="Añadir Texto"/>
+
 </LinearLayout>
