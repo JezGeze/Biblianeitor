@@ -1,20 +1,25 @@
 package com.jzdevcode.biblianeitor
 
+import com.jzdevcode.biblianeitor.database.ReferencesEntity
+
 interface TextToReferenceContract {
 
     interface ContViewTTR {
         fun getEditTextString(): String
         fun showMessage(text: String)
         fun showScreenText(screenText: String)
+        //fun showScreenText2(screenText: List<ReferencesEntity>)
     }
     
     interface ContPresenterTTR {
-        fun screenText()
-        fun validate()
+        fun getAllColumnsForValidate()
+        suspend fun screenText()
+        fun validateScreenTextAndScreenReference()
     }
     
     interface ContModelTTR {
-        fun sendPrueba(): String
+        suspend fun getAllColumnsFromDB(): List<ReferencesEntity>
+        //fun sendPrueba(): String
     }
     
 }

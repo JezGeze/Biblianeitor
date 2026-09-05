@@ -6,6 +6,8 @@ import android.widget.EditText
 import android.widget.Button
 import android.widget.Toast
 
+import com.jzdevcode.biblianeitor.database.ReferencesEntity
+
 class TextToReferenceActivity : AppCompatActivity(), TextToReferenceContract.ContViewTTR {
 
     private lateinit var presenterTTR: TextToReferenceContract.ContPresenterTTR
@@ -19,7 +21,7 @@ class TextToReferenceActivity : AppCompatActivity(), TextToReferenceContract.Con
         
         initPresenter()
         getViews()
-        presenterTTR.screenText()
+        presenterTTR.getAllColumnsForValidate()
         buttonsActions()
     }
     
@@ -35,13 +37,18 @@ class TextToReferenceActivity : AppCompatActivity(), TextToReferenceContract.Con
     
     private fun buttonsActions(){
         btnValidateAnswer.setOnClickListener{
-            presenterTTR.validate()
+            presenterTTR.validateScreenTextAndScreenReference()
         }
     }
     
     override fun showScreenText(screenText: String){
         etBiblicText.setText(screenText)
     }
+    
+     /*override fun showScreenText2(screenText: List<ReferencesEntity>){
+        val re = screenText
+        etBiblicText.setText("h $re")
+    }*/
     
     
     override fun getEditTextString(): String{

@@ -8,7 +8,10 @@ import androidx.room.Query
 interface ReferencesDao {
     
     @Insert
-    suspend fun insertReference(referencesEntity: ReferencesEntity)
+    suspend fun insertReferences(referencesEntity: ReferencesEntity)
+    
+    @Query("SELECT * FROM references_table")
+    suspend fun getAllColumns(): List<ReferencesEntity>
     
     @Query("SELECT COUNT(*) FROM references_table")
     suspend fun countReferences(): Int
