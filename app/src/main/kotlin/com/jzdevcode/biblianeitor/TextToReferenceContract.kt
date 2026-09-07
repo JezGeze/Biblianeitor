@@ -8,7 +8,7 @@ interface TextToReferenceContract {
         fun getEditTextString(): String
         fun showMessage(text: String)
         fun showScreenText(screenText: String)
-        //fun showScreenText2(screenText: List<ReferencesEntity>)
+        fun showAssosiation(assosiation: String, biblicReference: String, biblicText: String)
     }
     
     interface ContPresenterTTR {
@@ -19,7 +19,6 @@ interface TextToReferenceContract {
     
     interface ContModelTTR {
         suspend fun getAllColumnsFromDB(): List<ReferencesEntity>
-        //fun sendPrueba(): String
     }
     
 }

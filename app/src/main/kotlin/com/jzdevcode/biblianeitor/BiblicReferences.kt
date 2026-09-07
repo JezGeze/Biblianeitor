@@ -28,8 +28,4 @@ class BiblicReferences(context: Context) : TextToReferenceContract.ContModelTTR,
         return repository.countReferencesFromDao()
     }
     
-    /*override fun sendPrueba(): String {
-        val prueba = "Juan 3:16"
-        return prueba
-    }*/
 }

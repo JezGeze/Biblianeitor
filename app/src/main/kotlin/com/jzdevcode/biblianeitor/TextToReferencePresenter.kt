@@ -22,7 +22,6 @@ class TextToReferencePresenter(
                 referencesEntityList = modelTTR.getAllColumnsFromDB()
                 
                 withContext(Dispatchers.Main){
-                    //viewTTR.showScreenText2(referencesEntityList)
                     screenText()
                 }
             }
@@ -30,12 +29,15 @@ class TextToReferencePresenter(
         
     
     //getSizeReferencesEntityListAndReturnRandomNumber(): Int obtiene el tamaño de la lista devuelta por getAllColumnsForValidate y devuelve un numero al azar
+    //Si referencesEntityList esta vacio, entonces este metodo hara crashear la app
     private fun getSizeReferencesEntityListAndReturnRandomNumber(): Int {
         val listSize = referencesEntityList.size
         var randomNumber = Random.nextInt(listSize)
         return randomNumber
     }
     
+    //Si referencesEntityList esta vacio, entonces este metodo hara crashear la app
+    //screenText() se implementa dentro de getAllColumnsForValidate(), y lo que hace es pintar en pantalla las citas biblicas
     override suspend fun screenText() {
         var counter = 0
         do{
@@ -57,8 +59,11 @@ class TextToReferencePresenter(
         
         if (etStringToValidate == referencesEntityList[index].reference){
             viewTTR.showMessage("Correcto")
+        } else if (etStringToValidate.isEmpty()){
+            viewTTR.showMessage("Campo Vacío")
         } else {
             viewTTR.showMessage("Incorrecto")
+            viewTTR.showAssosiation(referencesEntityList[index].assosiation, referencesEntityList[index].text, referencesEntityList[index].reference)
         }
     }
 }
