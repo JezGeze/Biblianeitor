@@ -41,6 +41,10 @@ class PrincipalMenuActivity : AppCompatActivity() {
         btnAddText.setOnClickListener{
             changeActivity(AddTextActivity::class.java)
         }
+        
+        btnAssosiations.setOnClickListener{
+            changeActivity(AssosiationsActivity::class.java)
+        }
     }
     
     //Recordar que cada vez que se use esta funcion se deve escrivir ::Class.java. ejemplo: changeActivity(TextToReferencesActivity::class.java)

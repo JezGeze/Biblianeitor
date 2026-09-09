@@ -5,7 +5,7 @@ import com.jzdevcode.biblianeitor.database.Repository
 import com.jzdevcode.biblianeitor.database.DataBaseProvider
 import com.jzdevcode.biblianeitor.database.ReferencesEntity
 
-class BiblicReferences(context: Context) : TextToReferenceContract.ContModelTTR, AddTextContract.ContModelAT {
+class BiblicReferences(context: Context) : TextToReferenceContract.ContModelTTR, AddTextContract.ContModelAT, AssosiationsContract.ContAssosiationsModel {
     
     private val repository: Repository
     
