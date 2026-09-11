@@ -19,9 +19,13 @@ class BiblicReferences(context: Context) : TextToReferenceContract.ContModelTTR,
         repository.insertReference(referencesEntity)
     }
     
-    //getTextsColumnsFromDB(): List<String> se implementa en TextToReferencePresenter
+    //getTextsColumnsFromDB(): List<String> se implementa en TextToReferencePresenter y en AssosiationsPresenter
     override suspend fun getAllColumnsFromDB(): List<ReferencesEntity> {
         return repository.getAllColumnsFromDao()
+    }
+    
+    override suspend fun getAllTextsColumnsFromDB(): List<String>{
+        return repository.getAllTextsColumnsFromDao()
     }
     
     suspend fun getAllColumnsNumberFromDB(): Int{

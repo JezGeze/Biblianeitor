@@ -3,6 +3,8 @@ package com.jzdevcode.biblianeitor
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.jzdevcode.biblianeitor.recyclerView.AssosiationsAdapter
 
 class AssosiationsActivity : AppCompatActivity(), AssosiationsContract.ContAssosiationsActivity {
     
@@ -15,6 +17,7 @@ class AssosiationsActivity : AppCompatActivity(), AssosiationsContract.ContAssos
         
         initPresenter()
         getViews()
+        presenterAs.getAllTextsColumns()
     }
     
     private fun initPresenter(){
@@ -23,5 +26,11 @@ class AssosiationsActivity : AppCompatActivity(), AssosiationsContract.ContAssos
     
     private fun getViews(){
         recyclerView = findViewById(R.id.rv_references_list)
+    }
+    
+    override fun adaptersInfo(textsList: List<String>){
+        val adapter = AssosiationsAdapter(textsList)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.adapter = adapter
     }
 }

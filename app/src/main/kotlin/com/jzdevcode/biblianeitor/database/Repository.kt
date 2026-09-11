@@ -18,6 +18,11 @@ class Repository(private val referencesDao: ReferencesDao) {
             return referencesDao.getAllColumns()
         }
         
+        //Para implementarse en AssosiationsActivity
+        suspend fun getAllTextsColumnsFromDao(): List<String>{
+            return referencesDao.getAllTextsColumns()
+        }
+        
         suspend fun countReferencesFromDao(): Int {
             return referencesDao.countReferences()
         }
