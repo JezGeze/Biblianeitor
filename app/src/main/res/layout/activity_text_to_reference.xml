@@ -6,7 +6,7 @@
      android:layout_height="match_parent"
      android:layout_width="match_parent"
      tools:context=".TextToReferenceActivity">
-
+    
     <TextView
          android:layout_height="wrap_content"
          android:layout_width="0dp"
@@ -31,11 +31,22 @@
     <Button
          android:layout_height="wrap_content"
          android:layout_width="0dp"
-         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintStart_toEndOf="@id/btn_change_modality"
          app:layout_constraintEnd_toEndOf="parent"
          app:layout_constraintBottom_toBottomOf="parent"
          app:layout_constraintTop_toBottomOf="@id/et_biblic_text_answer"
          android:text="Validar"
          android:id="@+id/btn_validate_answer" />
+
+    <Button
+         android:layout_height="wrap_content"
+         android:layout_width="0dp"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintEnd_toStartOf="@id/btn_validate_answer"
+         app:layout_constraintBottom_toBottomOf="parent"
+         app:layout_constraintTop_toBottomOf="@id/et_biblic_text_answer"
+         android:text="Modo"
+         android:id="@+id/btn_change_modality" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

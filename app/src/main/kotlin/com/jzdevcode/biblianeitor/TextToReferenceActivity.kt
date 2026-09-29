@@ -16,6 +16,7 @@ class TextToReferenceActivity : AppCompatActivity(), TextToReferenceContract.Con
     private lateinit var tvBiblicText: TextView
     private lateinit var etBiblicTextAnswer: EditText
     private lateinit var btnValidateAnswer: Button
+    private lateinit var btnChangeModality: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,16 +36,26 @@ class TextToReferenceActivity : AppCompatActivity(), TextToReferenceContract.Con
         tvBiblicText = findViewById(R.id.tv_biblic_text)
         etBiblicTextAnswer = findViewById(R.id.et_biblic_text_answer)
         btnValidateAnswer = findViewById(R.id.btn_validate_answer)
+        btnChangeModality = findViewById(R.id.btn_change_modality)
     }
     
     private fun buttonsActions(){
         btnValidateAnswer.setOnClickListener{
             presenterTTR.validateScreenTextAndScreenReference()
         }
+        
+        btnChangeModality.setOnClickListener{
+            
+        }
+        
     }
     
     override fun showScreenText(screenText: String){
         tvBiblicText.setText("CITA BÍBLICA: $screenText")
+    }
+    
+    override fun clearScreenBiblicReference(screenBiblicReference: String){
+        etBiblicTextAnswer.setText(screenBiblicReference)
     }
     
     override fun getEditTextString(): String{
@@ -64,4 +75,5 @@ class TextToReferenceActivity : AppCompatActivity(), TextToReferenceContract.Con
         .setPositiveButton("Cerrar", null)
         .show()
     }
+    
 }

@@ -8,6 +8,7 @@ interface TextToReferenceContract {
         fun getEditTextString(): String
         fun showMessage(text: String)
         fun showScreenText(screenText: String)
+        fun clearScreenBiblicReference(screenBiblicReference: String)
         fun showAssosiation(assosiation: String, biblicReference: String, biblicText: String)
     }
     
