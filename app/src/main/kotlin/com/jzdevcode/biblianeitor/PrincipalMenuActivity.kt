@@ -7,9 +7,6 @@ import android.content.Context
 import android.content.Intent
 import android.widget.Toast
 
-//imports de Room
-import com.jzdevcode.biblianeitor.database.DataBaseProvider
-
 class PrincipalMenuActivity : AppCompatActivity() {
 
     private lateinit var btnTextReference: Button
@@ -22,7 +19,6 @@ class PrincipalMenuActivity : AppCompatActivity() {
         setContentView(R.layout.layout_principal_menu)
         
         getViews()
-        initDataBase()
         buttonsActions()
     }
     
@@ -53,10 +49,6 @@ class PrincipalMenuActivity : AppCompatActivity() {
         startActivity(intent)
     }
     
-    //initDataBase() esta ligado a DataBaseProvider, es una clase de Room, crea el archivo de la base de datos de Room, y si existe, lo carga
-    private fun initDataBase(){
-        DataBaseProvider.createDataBase(this)
-        Toast.makeText(this,"DB Cargada", Toast.LENGTH_SHORT).show()
-    }
+   
     
 }
