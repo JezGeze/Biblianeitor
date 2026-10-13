@@ -25,6 +25,7 @@ class TextToReferenceActivity : AppCompatActivity(), TextToReferenceContract.Con
         initPresenter()
         getViews()
         presenterTTR.getAllColumnsForValidate()
+        presenterTTR.screenText()
         buttonsActions()
     }
     

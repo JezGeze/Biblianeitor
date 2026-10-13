@@ -1,6 +1,6 @@
 package com.jzdevcode.biblianeitor
 
-import com.jzdevcode.biblianeitor.database.ReferencesEntity
+//import com.jzdevcode.biblianeitor.database.ReferencesEntity
 
 interface TextToReferenceContract {
 
@@ -14,12 +14,13 @@ interface TextToReferenceContract {
     
     interface ContPresenterTTR {
         fun getAllColumnsForValidate()
-        suspend fun screenText()
+        //suspend fun screenText()
+        fun screenText()
         fun validateScreenTextAndScreenReference()
     }
     
     interface ContModelTTR {
-        suspend fun getAllColumnsFromDB(): List<ReferencesEntity>
+        //suspend fun getAllColumnsFromDB(): List<ReferencesEntity>
     }
     
 }

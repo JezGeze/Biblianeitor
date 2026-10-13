@@ -8,17 +8,22 @@ import kotlinx.coroutines.async
 import kotlinx.coroutines.delay
 import kotlin.random.Random
 import com.jzdevcode.biblianeitor.database.ReferencesEntity
+import com.jzdevcode.biblianeitor.LoadScreenPresenter
 
 class TextToReferencePresenter(
     private val viewTTR: TextToReferenceContract.ContViewTTR, 
     private val modelTTR: TextToReferenceContract.ContModelTTR
     ) : TextToReferenceContract.ContPresenterTTR {
     
-    private var referencesEntityList = emptyList<ReferencesEntity>()
+    //private var referencesEntityList = emptyList<ReferencesEntity>()
     private var referencesExistents = mutableListOf<ReferencesEntity>()
     private var index = 0
     
     override fun getAllColumnsForValidate(){
+        referencesExistents.addAll(LoadScreenPresenter.referencesEntityList)
+    }
+    
+    /*override fun getAllColumnsForValidate(){
         CoroutineScope(Dispatchers.IO).launch{
                 referencesEntityList = modelTTR.getAllColumnsFromDB()
                 
@@ -26,7 +31,7 @@ class TextToReferencePresenter(
                     screenText()
                 }
             }
-        }
+        }*/
         
     
     //getSizeReferencesEntityListAndReturnRandomNumber(): Int obtiene el tamaño de la lista devuelta por getAllColumnsForValidate y devuelve un numero al azar
@@ -42,10 +47,18 @@ class TextToReferencePresenter(
         
     }
     
+    override fun screenText() {
+            if (referencesExistents.isNotEmpty()){
+                referencesExistents.addAll(LoadScreenPresenter.referencesEntityList)
+                index = getSizeReferencesExistentsAndReturnRandomNumber()
+                viewTTR.showScreenText(referencesExistents[index].text)
+             }
+    }  
+    
     //NOTA IMPORTANTE: HACER QUE EL USUARIO PONGA UNA PRIMERA ASOCIACION O TODO VA A CRASHEAR (BORRAR ESTE COMENTARIO UNA VEZ COMPLETADA LA TAREA)
     //Si referencesEntityList esta vacio, entonces este metodo hara crashear la app
     //screenText() se implementa dentro de getAllColumnsForValidate(), y lo que hace es pintar en pantalla las citas biblicas
-    override suspend fun screenText() {
+    /*override suspend fun screenText() {
         var counter = 0
         do{
             if (referencesEntityList.isEmpty()){
@@ -59,7 +72,7 @@ class TextToReferencePresenter(
                 counter = 11
             }
         }while(counter <= 10)
-    }
+    }*/
     
     //clearScreen() se implementa en referencesExistentsControl() en el else
     private fun clearScreen(){
@@ -77,7 +90,7 @@ class TextToReferencePresenter(
             if (referencesExistents.isNotEmpty()){
             clearScreen()
             } else {
-                referencesExistents.addAll(referencesEntityList)
+                referencesExistents.addAll(LoadScreenPresenter.referencesEntityList)
                 viewTTR.showMessage("Ronda Nueva")
                 clearScreen()
             }
