@@ -6,6 +6,7 @@ import android.widget.EditText
 import android.widget.Button
 import com.jzdevcode.biblianeitor.database.ReferencesEntity
 import android.widget.Toast
+import android.content.Intent
 
 class AddTextActivity : AppCompatActivity(), AddTextContract.ContViewAT{
 
@@ -53,5 +54,11 @@ class AddTextActivity : AppCompatActivity(), AddTextContract.ContViewAT{
     
     override fun showTextSavedMessage(message: String){
         Toast.makeText(this,message,Toast.LENGTH_SHORT).show()
+    }
+    
+    override fun changeActivityToRefresh(){
+        val intent = Intent(this,LoadScreen::class.java)
+        startActivity(intent)
+        finish()
     }
 }

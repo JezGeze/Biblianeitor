@@ -15,6 +15,7 @@ class AddTextPresenter(
             modelAT.addReference(referenceEntity)
         }
         viewAT.showTextSavedMessage("Texto bíblico guardado con éxito")
+        viewAT.changeActivityToRefresh()
         
     }
     

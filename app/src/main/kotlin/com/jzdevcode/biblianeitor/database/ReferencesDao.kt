@@ -13,7 +13,4 @@ interface ReferencesDao {
     @Query("SELECT * FROM references_table")
     suspend fun getAllColumns(): List<ReferencesEntity>
     
-    @Query("SELECT COUNT(*) FROM references_table")
-    suspend fun countReferences(): Int
-    
 }

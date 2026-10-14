@@ -65,7 +65,7 @@ class TextToReferenceActivity : AppCompatActivity(), TextToReferenceContract.Con
     }
     
     override fun showMessage(text: String){
-        Toast.makeText(this, text, Toast.LENGTH_LONG).show()
+        Toast.makeText(this, text, Toast.LENGTH_SHORT).show()
     }
     
     //showAssosiation muestra un cuadro de alert

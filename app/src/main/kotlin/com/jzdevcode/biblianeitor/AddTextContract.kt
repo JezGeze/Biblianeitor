@@ -7,6 +7,7 @@ interface AddTextContract {
     interface ContViewAT{
         fun createNewReferenceEntity(): ReferencesEntity
         fun showTextSavedMessage(message: String)
+        fun changeActivityToRefresh()
     }
     
     interface ContPresenterAT{
