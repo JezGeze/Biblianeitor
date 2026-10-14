@@ -48,11 +48,12 @@ class TextToReferencePresenter(
     }
     
     override fun screenText() {
-            if (referencesExistents.isNotEmpty()){
-                referencesExistents.addAll(LoadScreenPresenter.referencesEntityList)
-                index = getSizeReferencesExistentsAndReturnRandomNumber()
-                viewTTR.showScreenText(referencesExistents[index].text)
-             }
+        if(referencesExistents.isNotEmpty()){
+            index = getSizeReferencesExistentsAndReturnRandomNumber()
+            viewTTR.showScreenText(referencesExistents[index].text)
+        } else {
+            viewTTR.showMessage("Añada una primera asociación")
+        }
     }  
     
     //NOTA IMPORTANTE: HACER QUE EL USUARIO PONGA UNA PRIMERA ASOCIACION O TODO VA A CRASHEAR (BORRAR ESTE COMENTARIO UNA VEZ COMPLETADA LA TAREA)

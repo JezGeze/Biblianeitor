@@ -22,6 +22,7 @@ class LoadScreen : AppCompatActivity(), LoadScreenContract.LSView {
         presenterLS.initDataBase(this)
         presenterLS.getAllColumns()
         changeActivity()
+        finish()
     }
     
     private fun getViews() {
