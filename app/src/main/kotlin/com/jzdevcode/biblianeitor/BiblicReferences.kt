@@ -24,10 +24,6 @@ class BiblicReferences(context: Context) : TextToReferenceContract.ContModelTTR,
         return repository.getAllColumnsFromDao()
     }
     
-    override suspend fun getAllTextsColumnsFromDB(): List<String>{
-        return repository.getAllTextsColumnsFromDao()
-    }
-    
     suspend fun getAllColumnsNumberFromDB(): Int{
         return repository.countReferencesFromDao()
     }

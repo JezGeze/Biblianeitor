@@ -18,7 +18,6 @@ class AssosiationsActivity : AppCompatActivity(), AssosiationsContract.ContAssos
         initPresenter()
         getViews()
         presenterAs.setRecyclerView()
-        //presenterAs.getAllTextsColumns()
     }
     
     private fun initPresenter(){

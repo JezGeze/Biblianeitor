@@ -7,11 +7,9 @@ interface AssosiationsContract {
     }
     
     interface ContAssosiationsPresenter{
-        fun getAllTextsColumns()
         fun setRecyclerView()
     }
     
     interface ContAssosiationsModel{
-        suspend fun getAllTextsColumnsFromDB(): List<String>
     }
 }
