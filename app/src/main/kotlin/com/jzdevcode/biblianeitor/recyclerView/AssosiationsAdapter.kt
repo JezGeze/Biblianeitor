@@ -8,8 +8,14 @@ import android.view.View
 import android.view.LayoutInflater
 import com.jzdevcode.biblianeitor.R
 import android.widget.TextView
+import android.content.Context
+import androidx.appcompat.app.AlertDialog
 
-class AssosiationsAdapter(private val assosiations: List<String>) : RecyclerView.Adapter<AssosiationsAdapter.AssosiationsViewHolder>() {
+class AssosiationsAdapter(private val context: Context,
+                          private val titles: List<String>,
+                          private val assosiations: List<String>,
+                          private val biblicReferences: List<String>
+                         ) : RecyclerView.Adapter<AssosiationsAdapter.AssosiationsViewHolder>() {
     
     //Representa una tarjeta individual del RecyclerView
     class AssosiationsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
@@ -30,16 +36,22 @@ class AssosiationsAdapter(private val assosiations: List<String>) : RecyclerView
     
     //Se ejecuta para colocar los datos dentro de una tarjeta
     override fun onBindViewHolder(holder: AssosiationsViewHolder, position: Int){
-        val titulo = assosiations[position]
+        val title = titles[position]
+        val assosiation = assosiations[position]
+        val biblicReference = biblicReferences[position]
         
-        holder.tvBiblicReference.text = titulo
+        holder.tvBiblicReference.text = title
         
         holder.cvListItem.setOnClickListener{
-            
+            AlertDialog.Builder(context)
+            .setTitle("Asosiación de $title")
+            .setMessage("Asociación: $assosiation \nTexto: $biblicReference")
+            .setPositiveButton("Cerrar", null)
+            .show()
         }
     }
     
     override fun getItemCount(): Int {
-        return assosiations.size
+        return titles.size
     }
 }

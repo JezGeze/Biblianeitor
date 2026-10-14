@@ -17,7 +17,8 @@ class AssosiationsActivity : AppCompatActivity(), AssosiationsContract.ContAssos
         
         initPresenter()
         getViews()
-        presenterAs.getAllTextsColumns()
+        presenterAs.setRecyclerView()
+        //presenterAs.getAllTextsColumns()
     }
     
     private fun initPresenter(){
@@ -28,8 +29,8 @@ class AssosiationsActivity : AppCompatActivity(), AssosiationsContract.ContAssos
         recyclerView = findViewById(R.id.rv_references_list)
     }
     
-    override fun adaptersInfo(textsList: List<String>){
-        val adapter = AssosiationsAdapter(textsList)
+    override fun adaptersInfo(titlesList: List<String>, assosiationsList: List<String>, biblicReferencesList: List<String>){
+        val adapter = AssosiationsAdapter(this,titlesList,assosiationsList,biblicReferencesList)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = adapter
     }

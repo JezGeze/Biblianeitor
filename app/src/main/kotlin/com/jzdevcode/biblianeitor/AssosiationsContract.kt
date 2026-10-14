@@ -3,12 +3,12 @@ package com.jzdevcode.biblianeitor
 interface AssosiationsContract {
     
     interface ContAssosiationsActivity{
-        fun adaptersInfo(textsList: List<String>)
+        fun adaptersInfo(titlesList: List<String>, assosiationsList: List<String>, biblicReferencesList: List<String>)
     }
     
     interface ContAssosiationsPresenter{
         fun getAllTextsColumns()
-        suspend fun setRecyclerView()
+        fun setRecyclerView()
     }
     
     interface ContAssosiationsModel{
