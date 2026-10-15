@@ -17,5 +17,9 @@ class Repository(private val referencesDao: ReferencesDao) {
         suspend fun getAllColumnsFromDao(): List<ReferencesEntity> {
             return referencesDao.getAllColumns()
         }
+        //Para implementarse en AssosiationsPresenter
+        suspend fun deleteAssosiationFromDao(id: Int){
+            referencesDao.deleteAssosiation(id)
+        }
         
 }

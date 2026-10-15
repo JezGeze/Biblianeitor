@@ -24,4 +24,9 @@ class BiblicReferences(context: Context) : TextToReferenceContract.ContModelTTR,
         return repository.getAllColumnsFromDao()
     }
     
+    //deleteAssosiationFromDB(id: Int) se implementa en AssosiationsPresenter
+    override suspend fun deleteAssosiationFromDB(id: Int){
+        repository.deleteAssosiationFromDao(id)
+    }
+    
 }

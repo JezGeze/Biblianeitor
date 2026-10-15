@@ -3,8 +3,11 @@ package com.jzdevcode.biblianeitor
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
+import android.widget.Toast
+import android.content.Intent
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.jzdevcode.biblianeitor.recyclerView.AssosiationsAdapter
+import androidx.appcompat.app.AlertDialog
 
 class AssosiationsActivity : AppCompatActivity(), AssosiationsContract.ContAssosiationsActivity {
     
@@ -29,8 +32,37 @@ class AssosiationsActivity : AppCompatActivity(), AssosiationsContract.ContAssos
     }
     
     override fun adaptersInfo(titlesList: List<String>, assosiationsList: List<String>, biblicReferencesList: List<String>){
-        val adapter = AssosiationsAdapter(this,titlesList,assosiationsList,biblicReferencesList)
+        //val adapter = AssosiationsAdapter(this,titlesList,assosiationsList,biblicReferencesList)
+        val adapter = AssosiationsAdapter(titlesList) {index -> alertDialogShow(index,titlesList, assosiationsList, biblicReferencesList)}
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = adapter
+    }
+    
+    override fun showMessage(message: String){
+        Toast.makeText(this,message,Toast.LENGTH_SHORT).show()
+    }
+    
+    override fun refreshScreen(){
+        val intent = Intent(this,LoadScreen::class.java)
+        startActivity(intent)
+        finish()
+    }
+    
+    private fun alertDialogShow(index: Int,titlesList: List<String>, assosiationsList: List<String>, biblicReferencesList: List<String>){
+        AlertDialog.Builder(this)
+            .setTitle("Asosiación de ${titlesList[index]}")
+            .setMessage("Asociación: ${assosiationsList[index]} \nTexto: ${biblicReferencesList[index]}")
+            .setPositiveButton("Cerrar", null)
+            .setNegativeButton("Borrar"){_,_-> alertDialogDelete(index,titlesList)}
+            .show()
+    }
+    
+    private fun alertDialogDelete(index: Int, titlesList: List<String>){
+        AlertDialog.Builder(this)
+            .setTitle("Está seguro de borrar ${titlesList[index]}?")
+            .setMessage("La acción es irreversible")
+            .setPositiveButton("No", null)
+            .setNegativeButton("Sí"){_,_-> presenterAs.deleteAssosiation(index)}
+            .show()
     }
 }

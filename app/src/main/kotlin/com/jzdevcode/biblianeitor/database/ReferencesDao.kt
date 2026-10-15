@@ -10,7 +10,9 @@ interface ReferencesDao {
     @Insert
     suspend fun insertReferences(referencesEntity: ReferencesEntity)
     
+    @Query("DELETE FROM references_table WHERE id = :id")
+    suspend fun deleteAssosiation(id: Int)
+    
     @Query("SELECT * FROM references_table")
     suspend fun getAllColumns(): List<ReferencesEntity>
-    
 }

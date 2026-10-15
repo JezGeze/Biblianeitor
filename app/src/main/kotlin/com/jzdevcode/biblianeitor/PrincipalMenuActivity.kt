@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.widget.Button
 import android.content.Context
 import android.content.Intent
-import android.widget.Toast
 
 class PrincipalMenuActivity : AppCompatActivity() {
 
