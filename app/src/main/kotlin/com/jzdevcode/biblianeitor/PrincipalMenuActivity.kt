@@ -33,6 +33,10 @@ class PrincipalMenuActivity : AppCompatActivity() {
             changeActivity(TextToReferenceActivity::class.java)
         }
         
+        btnReferenceText.setOnClickListener{
+            changeActivity(ReferenceToTextActivity::class.java)
+        }
+        
         btnAddText.setOnClickListener{
             changeActivity(AddTextActivity::class.java)
         }
